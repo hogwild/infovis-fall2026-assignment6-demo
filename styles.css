@@ -1,0 +1,38 @@
+/* Bootstrap handles page layout, spacing, typography, panels and buttons.
+   Only visualization-specific styling remains here. */
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+svg text {
+  font-family: var(--bs-font-sans-serif);
+  fill: #192c3d;
+}
+.gray {
+  color: #aab6bf;
+}
+.orange {
+  color: #c96219;
+}
+.purple {
+  color: #7654a3;
+}
+.airline-bar {
+  cursor: pointer;
+}
+.airline-bar:focus {
+  outline: none;
+  stroke: #111;
+  stroke-width: 3;
+}
+#size-legend {
+  max-width: 520px;
+}
+.hub-label {
+  paint-order: stroke;
+  stroke: white;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Assignment 6 · Reference visualization</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body class="bg-body-tertiary">
+    <main class="container-fluid px-3 px-lg-4 py-4">
+      <header class="mb-4">
+        <p class="small fw-bold text-primary mb-2">
+          INFORMATION VISUALIZATION / ASSIGNMENT 6
+        </p>
+        <h1 class="fw-bold mb-3">Exploring airline networks</h1>
+        <p>
+          Compare airlines, trace their coverage, and discover connected cities
+          in this historical dataset.
+        </p>
+        <p class="small text-secondary mb-0">
+          Reference demo: explore the completed charts and interactions.
+          The Part 6 commentaries below are placeholders for your own findings.
+        </p>
+      </header>
+      <div
+        class="d-flex align-items-start align-items-sm-center justify-content-between gap-3 border-top border-bottom py-3 mb-3"
+      >
+        <p id="status" role="status" class="fw-semibold mb-0">
+          Loading local data…
+        </p>
+        <button
+          id="reset"
+          type="button"
+          class="btn btn-outline-primary flex-shrink-0"
+        >
+          Reset selection
+        </button>
+      </div>
+      <p id="checks" class="small text-secondary"></p>
+      <!-- Bootstrap grid: 5/12 + 7/12 at lg (992px); stacked below lg. -->
+      <div class="row g-4 mb-4">
+        <div class="col-12 col-lg-5">
+          <section class="bg-white border rounded-3 p-3 p-lg-4 h-100">
+            <h2 class="h5 fw-bold mb-3">01 · Compare airlines</h2>
+            <p>Click a bar to select an airline. Click it again to clear.</p>
+            <svg
+              id="bars"
+              viewBox="0 0 560 660"
+              role="img"
+              aria-label="Airline route-record counts"
+            ></svg>
+            <aside
+              id="story-airlines"
+              class="border-start border-4 border-primary bg-primary-subtle rounded-end p-3 mt-3"
+              aria-labelledby="story-airlines-title"
+            >
+              <h3 id="story-airlines-title" class="h6 fw-bold mb-2">
+                E1 · Your airline-count insight
+              </h3>
+              <p class="mb-0">
+                Describe a pattern or comparison in airline route-record counts.
+                Support your finding with values from the bar chart.
+              </p>
+            </aside>
+          </section>
+        </div>
+        <div class="col-12 col-lg-7">
+          <section class="bg-white border rounded-3 p-3 p-lg-4 h-100">
+            <h2 class="h5 fw-bold mb-3">02 · Explore geographic coverage</h2>
+            <p id="map-status">
+              All airports · select an airline to reveal routes.
+            </p>
+            <svg
+              id="map"
+              viewBox="0 0 800 560"
+              role="img"
+              aria-label="Airports and selected airline connections"
+            ></svg>
+            <p class="small">
+              <span class="gray">●</span> All airports
+              <span class="orange">●</span> Selected airports
+              <span class="purple">━</span> Selected routes
+            </p>
+            <p class="small text-secondary">
+              Each dot is one airport. Lines show connections, not actual flight
+              paths.
+            </p>
+            <aside
+              id="story-coverage"
+              class="border-start border-4 border-primary bg-primary-subtle rounded-end p-3 mt-3"
+              aria-labelledby="story-coverage-title"
+            >
+              <h3 id="story-coverage-title" class="h6 fw-bold mb-2">
+                E2 · Your geographic-coverage insight
+              </h3>
+              <p class="mb-0">
+                Describe the geographic coverage of a named airline or compare two
+                airlines. Use locations on the map as evidence and tell the reader
+                which airline to select.
+              </p>
+            </aside>
+          </section>
+        </div>
+      </div>
+      <section class="bg-white border rounded-3 p-3 p-lg-4 mb-4">
+        <h2 class="h5 fw-bold mb-3">03 · Discover connected cities</h2>
+        <p id="bubble-status">City route endpoints</p>
+        <p>
+          Area represents route endpoints. Position is for layout, not
+          geography. Hover over a circle for its exact count.
+        </p>
+        <svg
+          id="bubbles"
+          viewBox="0 0 1100 640"
+          role="img"
+          aria-label="City route-endpoint bubbles with five leading cities labeled"
+        ></svg>
+        <svg
+          id="size-legend"
+          viewBox="0 0 520 110"
+          aria-label="Bubble area legend"
+        ></svg>
+        <ol
+          id="top-cities"
+          class="small d-lg-flex flex-wrap column-gap-5 row-gap-2 ps-4"
+        ></ol>
+        <aside
+          id="story-cities"
+          class="border-start border-4 border-primary bg-primary-subtle rounded-end p-3 mt-3"
+          aria-labelledby="story-cities-title"
+        >
+          <h3 id="story-cities-title" class="h6 fw-bold mb-2">
+            E3 · Your city-connections insight
+          </h3>
+          <p class="mb-0">
+            Describe a pattern or comparison in city route-endpoint counts.
+            Name the cities and countries, support your finding with counts,
+            and state whether it concerns all airlines or a named airline.
+          </p>
+        </aside>
+      </section>
+      <footer class="small text-secondary py-3">
+        Source: supplied historical airline-route dataset and world GeoJSON.
+        Dates and data licenses are not established in the supplied files. See
+        <a href="SOURCES.md">source notes</a>. D3 v7.9.0 (ISC). Bootstrap v5.3.8
+        (MIT).
+      </footer>
+    </main>
+    <script src="lib/d3.v7.9.0.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
